@@ -1,0 +1,11 @@
+body {
+    overflow-x: hidden;
+    margin: auto;
+    background-color: #1D1D1D;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+}
