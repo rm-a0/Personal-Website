@@ -13,7 +13,7 @@ function typeWriter(textElement, speed) {
             // Remove the underline character after a short delay
             setTimeout(() => {
                 textElement.textContent = textElement.textContent.slice(0, -1); // Remove the last character
-            }, speed/1.15); // Delay refinement (might not work properly with different speed)
+            }, speed/1.2); // Delay refinement (might not work properly with different speed)
         } else {
             clearInterval(typingInterval);
             textElement.innerHTML += '_'; // Leave the underscore at the end (looks nice)
@@ -25,7 +25,7 @@ function typeWriter(textElement, speed) {
 document.addEventListener('DOMContentLoaded', function() {
     const typingText = document.querySelectorAll('.typing-animation');
     typingText.forEach(function(textElement) {
-        const speed = 130;
+        const speed = 100;
         typeWriter(textElement, speed);
     });
 });

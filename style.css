@@ -3,79 +3,115 @@
     --bg-secondar-color: #232323;
     --txt-primary-color: #FFFFFF;
     --txt-secondary-color: #D0D0D0;
-    --menu-height: 70px; /*will be used as offset for multiple elements */
+    --menu-height: 70px; /* will be used as offset for multiple elements */
+    --left-offset: 15vw; /* main content offest from the left */
 }
 
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #464646; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff00;
+}
+
+/* HTML and ody */
 html {
     scroll-snap-type: y mandatory;
 }
 
 body {
     overflow-x: hidden;
-    margin: auto;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
     background-color: var(--bg-primary-color);
     color: var(--txt-primary-color);
     display: flex;
     flex-direction: column;
 }
 
-/* Navigation menu */
-nav {
+/* Main navigation menu */
+.menu {
     position: fixed;
     z-index: 1;
-    background-color: var(--txt-primary-color);
     width: 100vw;
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-content: center;
     background-color: var(--bg-secondar-color);
     height: var(--menu-height);
 }
 
-ul {
+.menu ul {
     display: flex;
     flex-direction: row;
     list-style-type: none;
     padding: 0;
 }
 
-li {
-    padding-left: 4vw;
-    padding-right: 4vw;
+.menu li {
+    padding-left: 5vw;
+    padding-right: 5vw;
     align-content: center;
 }
 
+
 /* Links */
-a {
+.menu a {
     text-decoration: none;
     color: var(--txt-primary-color);
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: 1.1rem;
 }
 
+/* Sections and divs */
 section {
     display: flex;
     flex-direction: column;
-    align-self: center;
     height: 100vh;
     width: 100vw;
     scroll-snap-align: start;
     position: relative;
-    margin: 20px;
-    /* dont adjust padding, will mess up scrolling */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: var(--left-offset);
+    /* dont adjust top/bottom padding, will mess up scrolling */
 }
 
+/* Titles */
 h1 {
-    padding-top: var(--menu-height);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
     overflow: hidden;
     white-space: nowrap;
     margin: 0;
 }
 
 h2 {
-    padding-top: var(--menu-height);
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
     margin: 0;
 }
 
 p {
     margin: 0;
+}
+
+section h1 {
+    padding-top: 30vh;
+}
+/* Home */
+#home h1 {
+    padding-top: 10px;
+    font-size: 2rem;
+}
+#home h2 {
+    padding-top: 50vh;
 }

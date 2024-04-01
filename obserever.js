@@ -1,5 +1,5 @@
 // Elements to be observed
-const textElements = document.querySelectorAll('.section-title, .none');
+const textElements = document.querySelectorAll('.section-title, .menu');
 
 // Function that adds visible whenever the class is in the viewport
 const observer = new IntersectionObserver(entries => {
@@ -15,7 +15,7 @@ const observer = new IntersectionObserver(entries => {
     });
 });
 
-// Observe every element
+// Observe every element in textElements
 textElements.forEach(textElement => {
     observer.observe(textElement);
 });
