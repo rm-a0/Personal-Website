@@ -1,0 +1,194 @@
+/* Constants */
+:root {
+    --bg-primary-color: #1D1D1D;
+    --bg-secondar-color: #232323;
+    --txt-primary-color: #FFFFFF;
+    --txt-secondary-color: #D0D0D0;
+    --menu-height: 70px; /* will be used as offset for multiple elements */
+    --left-offset: 15vw; /* main content offest from the left */
+    --width-left: calc(100vw - var(--left-offset)); /* space left after offset */
+    --text-block-height: 50vh;
+    --text-block-width: calc(var(--width-left)/2);
+    /* blur on top and bottom of the element (visible when scrolling) */
+    --vertical-blur-gradient: linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 5%, #000 5%, #000 97%, rgba(0,0,0,0) 99%, rgba(0,0,0,0));
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #464646; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff00;
+}
+
+/* HTML and body */
+html {
+    scroll-snap-type: y mandatory;
+    width: 100vw;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    background-color: var(--bg-primary-color);
+    color: var(--txt-primary-color);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main navigation menu */
+.menu {
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: var(--bg-secondar-color);
+    height: var(--menu-height);
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu li {
+    padding-left: 5vw;
+    padding-right: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--txt-primary-color);
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: 1.1rem;
+}
+
+/* Sections */
+section {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: var(--width-left);
+    scroll-snap-align: start;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: var(--left-offset);
+}
+
+/* Titles and text */
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    width: auto;
+}
+
+h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    margin: 0;
+    width: auto;
+}
+
+h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    margin: 0;
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: justify;
+    padding-top: 15px;
+    padding-right: 20px;
+}
+
+section h1 {
+    padding-top: 30vh;
+}
+
+/* Home */
+#home h1 {
+    padding-top: 10px;
+    font-size: 2rem;
+}
+#home h2 {
+    padding-top: 50vh;
+}
+
+/* About */
+#about .about-text-container {
+    width: var(--text-block-width);
+}
+
+/* Skills */
+#skills .skill-container {
+    display: flex;
+    flex-direction: row;
+    width: var(--width-left);
+}
+
+#skills .skill-text-container {
+    margin-top: 10px;
+    overflow-y: scroll;
+    height: var(--text-block-height);
+    width: var(--text-block-width);
+    /* blur edges */
+    -webkit-mask: var(--vertical-blur-gradient);
+    mask: var(--vertical-blur-gradient);
+    border-radius: 20px;
+}
+
+#skills .skill-graph-container {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-template-rows: repeat(auto-fill, 50px);
+    overflow: scroll;
+    width: 400px;
+    margin-top: -60px;
+    margin-right: 50px;
+    margin-left: 60px;
+    padding-top: 25px;
+    padding-left: 25px;
+    background-color: var(--bg-secondar-color);
+    border-radius: 20px;
+}
+
+#skills img {
+    align-self: center;
+    height: 25px;
+    width: 25px;
+    padding: 5px;
+}
+
+#skills .skill-graph-container .progress-bar {
+    align-self: center;
+    height: 2px;
+    width: 280px; /* 100% value of progress bar */
+    font-size: 0;
+    background-color: white;
+}
+
