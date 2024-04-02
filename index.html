@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rm_a</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style/style.css">
     <link rel="icon" href="" type="">
     <!-- Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -31,21 +31,67 @@
     <!-- About me -->
     <section id="about">
         <h1 class="section-title">About me</h1>
-        <p>
-            My name is Michal Repčík,
-            I am a 19-year-old student from Slovakia currently studying Inforamtion 
-            Technology at the Brno University of Technology in Czech Republic.
-        </p>
+        <div class="about-text-container">
+            <p>
+                My name is Michal Repčík,
+                I am a 19-year-old student from Slovakia currently studying Inforamtion 
+                Technology at the Brno University of Technology in Czech Republic.
+            </p>
+        </div>
     </section>
 
     <!-- Skills -->
     <section id="skills">
         <h1 class="section-title">Skills</h1>
+        <div class="skill-container">
+            <div class="skill-text-container">
+                <p>
+                    Proficient in C and Python with a focus on software development, data analysis
+                    and system level development.
+                </p> 
+                <p>
+                    Skilled in HTML5 and CSS for building websites and web interfaces.
+                </p>
+                <p>
+                    Capable of using Javascript to create dynamic and responsive web interfaces and animations.
+                </p>
+                <p>
+                    Familiar with Bash and Assembly.
+                </p>
+                <p>
+                    Other skills outside of software development include Blender 3D for modeling and rendering, 
+                    and Photoshop/Procreate for digital art.
+                </p>
+            </div>
+            <div class="skill-graph-container">
+                <img src="./icons/c-ico.svg" alt="C">
+                <div class="progress-bar">85</div>
+                <img src="./icons/python-ico.svg" alt="python-icon">
+                <div class="progress-bar">90</div>
+                <img src="./icons/html-ico.svg" alt="html5-icon">
+                <div class="progress-bar">90</div>
+                <img src="./icons/css-ico.svg" alt="css-icon">
+                <div class="progress-bar">90</div>
+                <img src="./icons/js-ico.svg" alt="javascript-icon">
+                <div class="progress-bar">50</div>
+                <img src="./icons/bash-ico.svg" alt="bash-icon">
+                <div class="progress-bar">50</div>
+                <img src="./icons/assembly-ico.svg" alt="assembly-icon">
+                <div class="progress-bar">40</div>
+                <img src="./icons/blender-ico.svg" alt="blender-icon">
+                <div class="progress-bar">75</div>
+            </div>
+        </div>
     </section>
 
-    <!-- Portfolio -->
-    <section id="portfolio">
-        <h1 class="section-title">Porfolio</h1>
+    <!-- Projects -->
+    <section id="projects">
+        <h1 class="section-title">Projects</h1>
+        <div class="projects-menu">
+            <div class="projects-menu-item">
+                
+            </div>
+        </div>
     </section>
 
     <!-- Contact -->
@@ -54,7 +100,8 @@
     </section>
     
     <!-- Scripts -->
-    <script src="obserever.js"></script>
-    <script src="typing-animation.js"></script>
+    <script src="./scripts/obserever.js"></script>
+    <script src="./scripts/typing-animation.js"></script>
+    <script src="./scripts/progress-bar.js"></script>
 </body>
 </html>
