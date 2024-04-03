@@ -1,23 +1,27 @@
 /* Constants */
 :root {
-    --bg-primary-color: #1D1D1D;
-    --bg-secondary-color: #232323;
-    --txt-primary-color: #FFFFFF;
-    --txt-secondary-color: #D0D0D0;
+    --bg-primary-color: #FFFFFF;
+    --bg-secondary-color: #292929;
+    --txt-primary-color: #222222;
+    --txt-secondary-color: #FFFFFF;
     --menu-height: 70px; /* will be used as offset for multiple elements */
-    --left-offset: 15vw; /* main content offest from the left */
+    --left-offset: 18vw; /* main content offest from the left */
     --width-left: calc(100vw - var(--left-offset)); /* space left after offset */
     --text-block-height: 50vh;
     --text-block-width: calc(var(--width-left)/2);
-    /* blur on top and bottom of the element (visible when scrolling) */
-    --vertical-blur-gradient: linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 5%, #000 5%, #000 97%, rgba(0,0,0,0) 99%, rgba(0,0,0,0));
-    --horizontal-blur-gradient: linear-gradient(90deg,#00000061,#000000 3% 97%,#00000061);
+}
+
+.dark-theme {
+    --bg-primary-color: #292929;
+    --bg-secondary-color: #FCFCFC;
+    --txt-primary-color: #FFFFFF;
+    --txt-secondary-color: #000000;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 0;
+    height: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -26,7 +30,7 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #ffffff00;
+    background: transparent;
 }
 
 /* HTML and body */
@@ -50,24 +54,23 @@ body {
 .menu {
     position: fixed;
     z-index: 1;
-    width: 100vw;
+    width: 40vw;
+    right: 0;
+    height: 100vh;
     display: flex;
-    justify-content: center;
-    align-content: center;
-    background-color: var(--bg-secondar-color);
-    height: var(--menu-height);
+    flex-direction: column;
+    background-color: var(--bg-secondary-color);
+    clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .menu ul {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     list-style-type: none;
     padding: 0;
 }
 
 .menu li {
-    padding-left: 5vw;
-    padding-right: 5vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,8 +78,9 @@ body {
 }
 
 .menu a {
+    text-align: right;
     text-decoration: none;
-    color: var(--txt-primary-color);
+    color: var(--txt-secondary-color);
     font-family: 'Inter', sans-serif;
     font-weight: 200;
     font-size: 1.1rem;
@@ -91,7 +95,6 @@ section {
     scroll-snap-align: start;
     position: relative;
     margin-top: 20px;
-    margin-bottom: 20px;
     padding-left: var(--left-offset);
 }
 
@@ -103,11 +106,12 @@ h1 {
     white-space: nowrap;
     margin: 0;
     width: auto;
+    text-wrap: wrap;
 }
 
 h2 {
     font-family: 'Inter', sans-serif;
-    font-weight: 100;
+    font-weight: 150;
     margin: 0;
     width: auto;
 }
@@ -120,8 +124,8 @@ h3 {
 
 p {
     font-family: 'Inter', sans-serif;
-    font-weight: 200;
-    font-size: 1.2rem;
+    font-weight: 300;
+    font-size: 1.1rem;
     margin: 0;
     text-align: justify;
     padding-top: 15px;
@@ -138,7 +142,7 @@ section h1 {
     font-size: 2rem;
 }
 #home h2 {
-    padding-top: 50vh;
+    padding-top: 45vh;
 }
 
 /* About */
@@ -159,9 +163,6 @@ section h1 {
     overflow-y: scroll;
     height: var(--text-block-height);
     width: var(--text-block-width);
-    /* blur edges */
-    -webkit-mask: var(--vertical-blur-gradient);
-    mask: var(--vertical-blur-gradient);
     border-radius: 20px;
 }
 
@@ -169,16 +170,18 @@ section h1 {
     overflow-x: hidden;
     display: grid;
     grid-template-columns: 40px 1fr;
-    grid-template-rows: repeat(auto-fill, 50px);
+    grid-template-rows: repeat(auto-fill, 48px);
     overflow-y: scroll;
-    width: 400px;
+    width: 350px;
+    height: calc(48px * 8);
     margin-top: -60px;
     margin-right: 50px;
     margin-left: 60px;
-    padding-top: 25px;
     padding-left: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     background-color: var(--bg-secondary-color);
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 #skills img {
@@ -193,7 +196,7 @@ section h1 {
     height: 2px;
     width: 280px; /* 100% value of progress bar */
     font-size: 0;
-    background-color: white;
+    background-color: var(--txt-secondary-color);
 }
 
 /* Projects */
@@ -201,26 +204,23 @@ section h1 {
     overflow-x: auto;
     white-space: nowrap;
     scroll-behavior: smooth;
-    height: var(--text-block-height);
-    background-color: var(--bg-secondary-color);
+    height: calc(var(--text-block-height) - 6vh);
+    background-color: var(--bg-primary-color);
     margin-right: var(--left-offset);
     margin-top: 35px;
     border-radius: 20px;
     display: flex;
     flex-direction: row;
-    /* blur edges */
-    -webkit-mask: var(--horizontal-blur-gradient);
-    mask: var(--horizontal-blur-gradient);
 }
 
 #projects .projects-menu-item {
     align-self: center;
-    height: calc(var(--text-block-height) - 5vh);
-    width: calc(var(--text-block-height) - 5vh);
+    height: calc(var(--text-block-height) - 12vh);
+    width: calc(var(--text-block-height) - 12vh);
     background-color: var(--bg-primary-color);
     border-radius: 20px;
-    margin-left: 4vh;
-    margin-right: 4vh;
+    margin-left: 2vh;
+    margin-right: 2vh;
     flex: 0 0 auto;
     overflow: hidden;
     
@@ -233,6 +233,7 @@ section h1 {
 #projects .projects-menu-item .code-container code{
     margin-top: -30px;
     overflow: hidden;
+    
 }
 
 #projects .projects-menu-item .code-container:hover code {
