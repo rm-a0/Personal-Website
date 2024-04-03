@@ -1,7 +1,7 @@
 /* Constants */
 :root {
     --bg-primary-color: #1D1D1D;
-    --bg-secondar-color: #232323;
+    --bg-secondary-color: #232323;
     --txt-primary-color: #FFFFFF;
     --txt-secondary-color: #D0D0D0;
     --menu-height: 70px; /* will be used as offset for multiple elements */
@@ -11,11 +11,13 @@
     --text-block-width: calc(var(--width-left)/2);
     /* blur on top and bottom of the element (visible when scrolling) */
     --vertical-blur-gradient: linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 5%, #000 5%, #000 97%, rgba(0,0,0,0) 99%, rgba(0,0,0,0));
+    --horizontal-blur-gradient: linear-gradient(90deg,#00000061,#000000 3% 97%,#00000061);
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -152,6 +154,7 @@ section h1 {
 }
 
 #skills .skill-text-container {
+    overflow-x: hidden;
     margin-top: 10px;
     overflow-y: scroll;
     height: var(--text-block-height);
@@ -163,17 +166,18 @@ section h1 {
 }
 
 #skills .skill-graph-container {
+    overflow-x: hidden;
     display: grid;
     grid-template-columns: 40px 1fr;
     grid-template-rows: repeat(auto-fill, 50px);
-    overflow: scroll;
+    overflow-y: scroll;
     width: 400px;
     margin-top: -60px;
     margin-right: 50px;
     margin-left: 60px;
     padding-top: 25px;
     padding-left: 25px;
-    background-color: var(--bg-secondar-color);
+    background-color: var(--bg-secondary-color);
     border-radius: 20px;
 }
 
@@ -192,3 +196,46 @@ section h1 {
     background-color: white;
 }
 
+/* Projects */
+#projects .projects-menu {
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    height: var(--text-block-height);
+    background-color: var(--bg-secondary-color);
+    margin-right: var(--left-offset);
+    margin-top: 35px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    /* blur edges */
+    -webkit-mask: var(--horizontal-blur-gradient);
+    mask: var(--horizontal-blur-gradient);
+}
+
+#projects .projects-menu-item {
+    align-self: center;
+    height: calc(var(--text-block-height) - 5vh);
+    width: calc(var(--text-block-height) - 5vh);
+    background-color: var(--bg-primary-color);
+    border-radius: 20px;
+    margin-left: 4vh;
+    margin-right: 4vh;
+    flex: 0 0 auto;
+    overflow: hidden;
+    
+}
+
+#projects .projects-menu-item .code-container {
+    margin-top: -20px;
+}
+
+#projects .projects-menu-item .code-container code{
+    margin-top: -30px;
+    overflow: hidden;
+}
+
+#projects .projects-menu-item .code-container:hover code {
+    filter: blur(2px) saturate(200%); 
+    transition: filter 0.3s ease;
+}
