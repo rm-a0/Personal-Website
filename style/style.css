@@ -4,7 +4,6 @@
     --bg-secondary-color: #292929;
     --txt-primary-color: #222222;
     --txt-secondary-color: #FFFFFF;
-    --menu-height: 70px; /* will be used as offset for multiple elements */
     --left-offset: 18vw; /* main content offest from the left */
     --width-left: calc(100vw - var(--left-offset)); /* space left after offset */
     --text-block-height: 50vh;
@@ -25,7 +24,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #464646; 
+    background: var(--bg-secondary-color); 
     border-radius: 10px;
 }
 
@@ -50,6 +49,30 @@ body {
     flex-direction: column;
 }
 
+/* Buttons */
+#menu-btn {
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 30px;
+    margin-right: 50px;
+    height: 40px;
+    width: 40px;
+    background-color: var(--bg-secondary-color);
+    color: var(--txt-secondary-color);
+    border: 0px;
+}
+
+#dark-theme-btn {
+    align-self: flex-end;
+    height: 20px;
+    width: 40px;
+    background-color: var(--bg-primary-color);
+    color: var(--txt-primary-color);
+    border: 0px;
+}
+
 /* Main navigation menu */
 .menu {
     position: fixed;
@@ -60,7 +83,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--bg-secondary-color);
-    clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(35% 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .menu ul {
@@ -68,6 +91,10 @@ body {
     flex-direction: column;
     list-style-type: none;
     padding: 0;
+    padding-top: 100px;
+    padding-right: 50px;
+    width: 100px;
+    align-self: flex-end;
 }
 
 .menu li {
@@ -75,6 +102,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .menu a {
@@ -140,9 +169,11 @@ section h1 {
 #home h1 {
     padding-top: 10px;
     font-size: 2rem;
+    width: var(--text-block-width);
 }
 #home h2 {
     padding-top: 45vh;
+    width: var(--text-block-width);
 }
 
 /* About */
@@ -167,6 +198,7 @@ section h1 {
 }
 
 #skills .skill-graph-container {
+    z-index: 4;
     overflow-x: hidden;
     display: grid;
     grid-template-columns: 40px 1fr;
@@ -175,7 +207,7 @@ section h1 {
     width: 350px;
     height: calc(48px * 8);
     margin-top: -60px;
-    margin-right: 50px;
+    margin-right: 150px;
     margin-left: 60px;
     padding-left: 25px;
     padding-top: 20px;
@@ -201,11 +233,12 @@ section h1 {
 
 /* Projects */
 #projects .projects-menu {
+    z-index: 4;
     overflow-x: auto;
     white-space: nowrap;
     scroll-behavior: smooth;
     height: calc(var(--text-block-height) - 6vh);
-    background-color: var(--bg-primary-color);
+    background-color: transparent;
     margin-right: var(--left-offset);
     margin-top: 35px;
     border-radius: 20px;
