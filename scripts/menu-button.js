@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     menuButton.addEventListener("click", function() {
     menus.forEach(function(menu) {
-    if (menu.style.display === "none") {
-        menu.style.display = "flex";
+    if (menu.style.display === "flex") {
+        menu.style.display = "none";
     } 
     else {
-        menu.style.display = "none";
+        menu.style.display = "flex";
     }
     });
 });
