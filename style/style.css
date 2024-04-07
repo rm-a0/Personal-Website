@@ -6,7 +6,7 @@
     --txt-secondary-color: #FFFFFF;
     --left-offset: 18vw; /* main content offest from the left */
     --width-left: calc(100vw - var(--left-offset)); /* space left after offset */
-    --text-block-height: 50vh;
+    --text-block-height: 50dvh;
     --text-block-width: calc(var(--width-left)/2);
 }
 
@@ -81,7 +81,7 @@ body {
     z-index: 1;
     width: 40vw;
     right: 0;
-    height: 100vh;
+    height: 100dvh;
     display: none;
     flex-direction: column;
     background-color: var(--bg-secondary-color);
@@ -113,19 +113,24 @@ body {
     text-decoration: none;
     color: var(--txt-secondary-color);
     font-family: 'Inter', sans-serif;
-    font-weight: 200;
+    font-weight: 300;
     font-size: 1.1rem;
 }
 
 .menu .menu-links {
     display: flex;
     flex-direction: row;
+    /* optimized for different browsers */
+    width: -moz-available;
     width: -webkit-fill-available;
+    width: -o-fill-available;
+    width: -ms-fill-available;
+    width: stretch;
     justify-content: flex-end;
     position: inherit;
     bottom: 0;
     padding-right: 50px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .menu .menu-links img {
@@ -134,11 +139,18 @@ body {
     margin: 5px;
 }
 
+.menu .menu-links .pipe {
+    height: 25px;
+    width: 2px;
+    background-color: var(--txt-secondary-color);
+    margin: 5px;
+}
+
 /* Sections */
 section {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100dvh;
     width: var(--width-left);
     scroll-snap-align: start;
     position: relative;
@@ -181,7 +193,7 @@ p {
 }
 
 section h1 {
-    padding-top: 30vh;
+    padding-top: 30dvh;
 }
 
 a {
@@ -196,13 +208,16 @@ a {
     width: var(--text-block-width);
 }
 #home h2 {
-    padding-top: 45vh;
+    padding-top: 45dvh;
     width: var(--text-block-width);
 }
 
 /* About */
 #about .about-text-container {
     width: var(--text-block-width);
+    height: var(--text-block-height);
+    overflow-y: scroll;
+    margin-top: 10px;
 }
 
 /* Skills */
@@ -253,15 +268,17 @@ a {
     width: 280px; /* 100% value of progress bar */
     font-size: 0;
     background-color: var(--txt-secondary-color);
+    margin-left: 10px;
 }
 
 /* Projects */
 #projects .projects-menu {
+    scroll-snap-type: x mandatory;
     z-index: 4;
     overflow-x: auto;
     white-space: nowrap;
     scroll-behavior: smooth;
-    height: calc(var(--text-block-height) - 6vh);
+    height: calc(var(--text-block-height) - 6dvh);
     background-color: transparent;
     margin-right: var(--left-offset);
     margin-top: 35px;
@@ -271,12 +288,13 @@ a {
 }
 
 #projects .projects-menu-item {
+    scroll-snap-align: start;
     align-self: center;
-    height: calc(var(--text-block-height) - 12vh);
-    width: calc(var(--text-block-height) - 12vh);
+    height: calc(var(--text-block-height) - 12dvh);
+    width: calc(var(--text-block-height) - 12dvh);
     border-radius: 20px;
-    margin-left: 2vh;
-    margin-right: 2vh;
+    margin-left: 2dvh;
+    margin-right: 2dvh;
     flex: 0 0 auto;
     overflow: hidden;
     position: relative;
@@ -332,3 +350,115 @@ a {
     margin: 10px;
     margin-left: 0;
 }
+
+/* Optimalization for smaller screens */
+
+/* Small laptop */
+@media screen and (max-width: 1024px) {
+    #skills .skill-container {
+        width: auto;
+        flex: 0 0 auto;
+        overflow: hidden;
+        position: relative;
+        overflow-x: auto;
+        white-space: nowrap;
+        scroll-behavior: smooth;
+        background-color: transparent;
+        margin-right: var(--left-offset);
+        margin-top: 35px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        height: var(--text-block-height);
+        scroll-snap-type: x mandatory;
+    }
+
+    #skills .skill-text-container {
+        scroll-snap-align: start;
+        width: calc(var(--text-block-width) + 300px);
+        height: var(--text-block-height);
+        overflow-y: scroll;
+        flex: 0 0 auto;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 50px;
+        width: 65vw;
+        margin-right: var(--left-offset);
+        text-wrap: wrap;
+    }
+
+    #skills .skill-text-container p {
+        margin-left: 10px;
+    }
+
+    #skills .skill-graph-container {
+        scroll-snap-align: start;
+        flex: 0 0 auto;
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 65vw;
+        align-self: flex-end;
+        height: var(--text-block-height);
+        overflow-y: scroll;
+    }
+
+    #skills .skill-graph-container img {
+        margin-left: 15px;
+    }
+}
+
+/* Mobile and small tablet */
+@media screen and (max-width: 800px) {
+    .menu {
+        width: 60vw;
+    }
+
+    #projects .projects-menu {
+        z-index: 0;
+    }
+}
+
+/* small tweaks for different thresholds */
+@media screen and (max-height: 675px) {
+    #skills .skill-container,
+    #skills .skill-text-container,
+    #skills .skill-graph-container{
+        z-index: 0;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #skills .skill-container,
+    #skills .skill-text-container,
+    #skills .skill-graph-container{
+        z-index: 0;
+    }
+
+    #about .about-text-container {
+        width: calc(var(--text-block-width) + 300px);
+    }
+
+    
+    #about .about-text-container p {
+        margin-right: 50px;
+    }
+}
+
+/* mobile devices */
+/* TODO */
+@media screen and (max-width: 540px) {
+    .menu {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .menu {
+        width: 100vw;
+    }
+}
+
+/* Animations */
