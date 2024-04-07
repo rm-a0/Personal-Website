@@ -80,12 +80,18 @@ body {
     position: fixed;
     z-index: 1;
     width: 40vw;
-    right: 0;
     height: 100dvh;
-    display: none;
+    display: flex;
     flex-direction: column;
     background-color: var(--bg-secondary-color);
     clip-path: polygon(35% 0, 100% 0, 100% 100%, 0 100%);
+    right: -40vw;
+    transition: right 0.3s ease-in-out; /* Transition when opening/closing */
+}
+
+/* menu slides in */
+.menu.menu-open {
+    right: 0;
 }
 
 .menu ul {
@@ -424,6 +430,7 @@ a {
 @media screen and (max-width: 800px) {
     .menu {
         width: 60vw;
+        right: -60vw;
     }
 
     #projects .projects-menu {
@@ -461,6 +468,7 @@ a {
 @media screen and (max-width: 540px) {
     .menu {
         width: 80vw;
+        right: -80vw;
     }
 
     #skills .skill-container .skill-graph-container .progress-bar {
@@ -476,11 +484,10 @@ a {
 @media screen and (max-width: 440px) {
     .menu {
         width: 100vw;
+        right: -100vw;
     }
 
     #skills .skill-container .skill-graph-container .progress-bar {
         width: 200px;
     }
 }
-
-/* Animations */ 

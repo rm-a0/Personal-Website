@@ -3,13 +3,14 @@ document.addEventListener("DOMContentLoaded", function() {
     var menus = document.querySelectorAll(".menu");
 
     menuButton.addEventListener("click", function() {
-    menus.forEach(function(menu) {
-    if (menu.style.display === "flex") {
-        menu.style.display = "none";
-    } 
-    else {
-        menu.style.display = "flex";
-    }
+        menus.forEach(function(menu) {
+            menu.classList.toggle("menu-open");
+            if (menu.classList.contains("menu-open")) {
+                menuButton.textContent = "✕";
+            } 
+            else {
+                menuButton.textContent = "|||";
+            }
+        });
     });
-});
 });
