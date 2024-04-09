@@ -370,7 +370,6 @@ a {
 }
 
 #projects .project-graph {
-    padding-left: -5px;
     width: 250px;
     background-color: transparent;
     height: 5px;
