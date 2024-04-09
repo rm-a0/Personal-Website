@@ -1,4 +1,5 @@
 const darkThemeBtn = document.getElementById('dark-theme-btn');
+const slider = document.getElementsByClassName('slider');
 const root = document.documentElement;
 
 // Function to check if it's night time
@@ -25,6 +26,7 @@ function toggleThemeByTime() {
         changeIconColor('icon', 'dark-theme');
         changeIconColor('icon-2', 'light-theme');
     } else {
+        
         root.classList.remove('dark-theme');
         changeIconColor('icon', 'light-theme');
         changeIconColor('icon-2', 'dark-theme');
@@ -37,6 +39,9 @@ toggleThemeByTime();
 // Add event listener to toggle theme manually
 darkThemeBtn.addEventListener('click', function() {
     root.classList.toggle('dark-theme');
+    for (let i = 0; i < slider.length; i++) {
+        slider[i].classList.toggle('slide'); // Toggle the 'slide' class on each slider element
+    }
 
     if (root.classList.contains('dark-theme')) {
         changeIconColor('icon', 'dark-theme');

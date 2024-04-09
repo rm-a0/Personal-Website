@@ -61,18 +61,38 @@ body {
     width: 40px;
     background-color: var(--bg-secondary-color);
     color: var(--txt-secondary-color);
-    border: 0px;
     border-radius: 10px;
+    border: 0px;
 }
 
 #dark-theme-btn {
     align-self: flex-end;
     height: 20px;
-    width: 40px;
+    width: 38px;
     background-color: var(--bg-primary-color);
     color: var(--txt-primary-color);
+    border-radius: 15px;
+    position: relative;
     border: 0px;
-    border-radius: 5px;
+}
+
+/* Button animation */ 
+#dark-theme-btn .slider {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    background-color: var(--txt-primary-color);
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+    right: 0;
+    transition: right 0.3s ease-in-out;
+}
+
+#dark-theme-btn .slide {
+    right: 30%;
 }
 
 /* Main navigation menu */
@@ -333,6 +353,7 @@ a {
     flex-direction: column;
     align-self: flex-end;
     margin-bottom: 25px;
+    
 }
 
 #projects .projects-menu-item p {
@@ -513,10 +534,20 @@ a {
 }
 
 /* small tweaks for different thresholds */
-@media screen and (max-height: 675px) {
+@media screen and (max-height: 700px) {
     #skills .skill-container,
     #skills .skill-text-container,
     #skills .skill-graph-container{
+        z-index: 0;
+    }
+
+    #projects .project-graph {
+        width: 150px;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    #projects .projects-menu {
         z-index: 0;
     }
 }
