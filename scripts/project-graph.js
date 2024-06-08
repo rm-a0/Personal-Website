@@ -9,6 +9,7 @@ graphContainers.forEach(container => {
     // Define colors for languages (default colors from github)
     const languageColors = {
         "C": "#666666",
+        "C++": "#F34B7D",
         "Makefile": "#427819",
         "Python": "#3572A5",
         "HTML": "#E34C26",
